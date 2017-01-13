@@ -11,8 +11,7 @@ RUN apt-get update && apt-get install -y \
   libmysqlclient-dev \
   mysql-client
 
-RUN rm -rf build && \
-    mkdir build && \
+RUN mkdir build && \
     cd build && \
     git clone https://github.com/infusion/udf_infusion.git && \
     cd udf_infusion && \
