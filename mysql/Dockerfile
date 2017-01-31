@@ -30,4 +30,4 @@ RUN apt-get install -y libmysqlclient-dev libpcre3-dev && \
     make && \
     make install && \
     service mysql start && \
-    make MYSQL="mysql -pcicero" installdb
+    mysql -uroot -pcicero <./installdb.sql
