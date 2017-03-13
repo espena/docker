@@ -29,5 +29,7 @@ RUN apt-get install -y libmysqlclient-dev libpcre3-dev && \
     ./configure && \
     make && \
     make install && \
+    echo "general_log_file = /var/log/query.log" >> /etc/mysql/conf.d/docker.cnf && \
+    echo "general_log      = 1" >> /etc/mysql/conf.d/docker.cnf && \
     service mysql start && \
     mysql -uroot -pcicero <./installdb.sql
