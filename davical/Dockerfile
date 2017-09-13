@@ -48,7 +48,5 @@ RUN cd /etc/postgresql/9.5/main && patch pg_hba.conf < pg_hba.conf.patch && \
     su postgres -c /usr/share/davical/dba/create-database.sh && \
     service postgresql stop
 
-#CMD ~/hostconfig.sh && \
-#    tail -f /dev/null
-
-CMD tail -f /dev/null
+CMD ~/hostconfig.sh && \
+    tail -f /dev/null
