@@ -1,7 +1,7 @@
 dav:
   image: davical
   ports:
-      - 8008:80
+      - 80:80
   environment:
       - VHOST_NAME=caldav.private.espenandersen.no
       - VHOST_ADMIN=post@espenandersen.no
