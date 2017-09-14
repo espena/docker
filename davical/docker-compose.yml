@@ -1,5 +1,5 @@
 dav:
-  image: dav
+  image: davical
   ports:
       - 8008:80
   environment:
