@@ -16,7 +16,12 @@ RUN apt-get update && apt-get install -y \
     php-cgi \
     php-curl \
     php-pgsql \
-    php-imap
+    php-imap \
+    software-properties-common
+
+RUN add-apt-repository ppa:certbot/certbot && \
+    apt-get update && \
+    apt-get install -y python-certbot-nginx
 
 RUN git clone https://gitlab.com/davical-project/davical.git && \
     git clone https://gitlab.com/davical-project/awl.git && \
