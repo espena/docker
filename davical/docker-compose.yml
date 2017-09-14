@@ -3,6 +3,6 @@ dav:
   ports:
       - 80:80
   environment:
-      - VHOST_NAME=caldav.private.espenandersen.no
+      - VHOST_NAME=caldav.espenandersen.no
       - VHOST_ADMIN=post@espenandersen.no
       - DAVICAL_SYSNAME=Calendar
