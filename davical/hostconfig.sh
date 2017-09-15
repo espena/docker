@@ -4,7 +4,7 @@ VHOST_NAME="${VHOST_NAME:-localhost}"
 VHOST_ADMIN="${VHOST_ADMIN:-webmaster@localhost}"
 cd /etc/nginx/sites-available
 sed -i "s/VHOST_NAME/"$VHOST_NAME"/g" default
-mv default $VHOST_NAME
+mv default $VHOST_NAME.conf
 ln -s /etc/nginx/sites-available/$VHOST_NAME /etc/nginx/sites-enabled/
 rm /etc/nginx/sites-enabled/default
 cd /etc/davical
