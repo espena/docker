@@ -1,0 +1,17 @@
+--- MySpatialUDF.sql	2017-10-15 14:48:32.000000000 +0000
++++ MySpatialUDF.sql.new	2017-10-15 19:50:33.765749508 +0000
+@@ -1,7 +1,5 @@
+ 
+-use mysql;
+-
+-source "sql/create_spatial_ref_sys.sql"
++source sql/create_spatial_ref_sys.sql
+ 
+ /* UDF Functions and procedures */
+ DROP FUNCTION IF EXISTS msudf_boundary;
+@@ -166,4 +164,4 @@
+ 
+ /* Some basic tests ... */
+ 
+-source "sql/tests.sql"
++source sql/tests.sql

@@ -1,0 +1,11 @@
+--- create_spatial_ref_sys.sql	2017-10-15 14:48:31.000000000 +0000
++++ create_spatial_ref_sys.sql.new	2017-10-15 15:49:40.736163125 +0000
+@@ -3,7 +3,7 @@
+ 
+ CREATE TABLE spatial_ref_sys (
+ srid INTEGER NOT NULL PRIMARY KEY,
+-auth_name varchar(8) NOT NULL,
++auth_name varchar(10) NOT NULL,
+ auth_srid INTEGER NOT NULL,
+ ref_sys_name TEXT,
+ proj4text TEXT NOT NULL,
