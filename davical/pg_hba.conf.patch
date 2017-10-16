@@ -1,0 +1,12 @@
+--- pg_hba.conf	2017-09-08 21:32:31.000000000 +0000
++++ pg_hba.conf.modified	2017-09-08 22:27:02.094243824 +0000
+@@ -87,7 +87,8 @@
+ # TYPE  DATABASE        USER            ADDRESS                 METHOD
+ 
+ # "local" is for Unix domain socket connections only
+-local   all             all                                     peer
++local   davical    davical_app   trust
++local   davical    davical_dba   trust
+ # IPv4 local connections:
+ host    all             all             127.0.0.1/32            md5
+ # IPv6 local connections:

@@ -1,0 +1,8 @@
+dav:
+  image: davical
+  ports:
+      - 443:443
+  environment:
+      - VHOST_NAME=caldav.espenandersen.no
+      - VHOST_ADMIN=post@espenandersen.no
+      - DAVICAL_SYSNAME=Calendar
