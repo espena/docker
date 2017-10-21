@@ -1,5 +1,7 @@
 FROM mysql
 
+RUN mkdir /res
+
 COPY res /res
 
 RUN mv /res/MySpatialUDF.sql.patch /build/MySQL-Spatial-UDF/MySpatialUDF.sql.patch && \
