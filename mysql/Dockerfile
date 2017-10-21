@@ -1,9 +1,5 @@
 FROM mysql
 
-COPY MySpatialUDF.sql.patch /build/MySQL-Spatial-UDF/
-COPY create_spatial_ref_sys.sql.patch /build/MySQL-Spatial-UDF/sql/
-COPY tests.sql.patch /build/MySQL-Spatial-UDF/sql/
-
 RUN apt-get update && apt-get install -y \
   build-essential \
   subversion \
@@ -17,7 +13,7 @@ RUN apt-get update && apt-get install -y \
   libmysqlclient-dev \
   mysql-client
 
-RUN mkdir -p build && \
+RUN mkdir build && \
     cd build && \
     git clone https://github.com/infusion/udf_infusion.git && \
     cd udf_infusion && \
@@ -54,12 +50,15 @@ RUN cd build && \
     make install
 
 
+COPY MySpatialUDF.sql.patch /build/MySQL-Spatial-UDF/MySpatialUDF.sql.patch
 RUN cd /build/MySQL-Spatial-UDF && \
     patch MySpatialUDF.sql < MySpatialUDF.sql.patch
 
+COPY create_spatial_ref_sys.sql.patch /build/MySQL-Spatial-UDF/sql/create_spatial_ref_sys.sql.patch
 RUN cd /build/MySQL-Spatial-UDF/sql && \
     patch create_spatial_ref_sys.sql < create_spatial_ref_sys.sql.patch
 
+COPY tests.sql.patch /build/MySQL-Spatial-UDF/sql/tests.sql.patch
 RUN cd /build/MySQL-Spatial-UDF/sql && \
     patch tests.sql < tests.sql.patch
 
