@@ -1,8 +1,11 @@
 FROM mysql
 
-COPY res/MySpatialUDF.sql.patch /build/MySQL-Spatial-UDF/MySpatialUDF.sql.patch
-COPY res/create_spatial_ref_sys.sql.patch /build/MySQL-Spatial-UDF/sql/create_spatial_ref_sys.sql.patch
-COPY res/tests.sql.patch /build/MySQL-Spatial-UDF/sql/tests.sql.patch
+COPY res /res
+
+RUN mv /res/MySpatialUDF.sql.patch /build/MySQL-Spatial-UDF/MySpatialUDF.sql.patch && \
+    mv /res/create_spatial_ref_sys.sql.patch /build/MySQL-Spatial-UDF/sql/create_spatial_ref_sys.sql.patch && \
+    mv /res/tests.sql.patch /build/MySQL-Spatial-UDF/sql/tests.sql.patch && \
+    rm -rf /res
 
 RUN apt-get update && apt-get install -y \
   build-essential \
