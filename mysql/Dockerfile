@@ -50,15 +50,15 @@ RUN cd build && \
     make install
 
 
-COPY MySpatialUDF.sql.patch /build/MySQL-Spatial-UDF/
+COPY res/MySpatialUDF.sql.patch /build/MySQL-Spatial-UDF/MySpatialUDF.sql.patch
 RUN cd /build/MySQL-Spatial-UDF && \
     patch MySpatialUDF.sql < MySpatialUDF.sql.patch
 
-COPY create_spatial_ref_sys.sql.patch /build/MySQL-Spatial-UDF/sql/
+COPY res/create_spatial_ref_sys.sql.patch /build/MySQL-Spatial-UDF/sql/create_spatial_ref_sys.sql.patch
 RUN cd /build/MySQL-Spatial-UDF/sql && \
     patch create_spatial_ref_sys.sql < create_spatial_ref_sys.sql.patch
 
-COPY tests.sql.patch /build/MySQL-Spatial-UDF/sql/
+COPY res/tests.sql.patch /build/MySQL-Spatial-UDF/sql/tests.sql.patch
 RUN cd /build/MySQL-Spatial-UDF/sql && \
     patch tests.sql < tests.sql.patch
 

@@ -1,7 +1,12 @@
 dav:
+  container_name: davical_server
   image: davical
+  restart: always
   ports:
       - 443:443
+  volumes:
+      - ./docker-volumes/etc/letsencrypt/live:/etc/letsencrypt/live
+      - ./docker-volumes/var/lib/postgresql/9.5:/var/lib/postgresql/9.5
   environment:
       - VHOST_NAME=caldav.espenandersen.no
       - VHOST_ADMIN=post@espenandersen.no
