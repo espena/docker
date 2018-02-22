@@ -1,19 +1,15 @@
-FROM ubuntu:15.04
+FROM ubuntu:latest
 
 RUN apt-get update && apt-get install -y \
   git \
   build-essential \
   texlive \
   texlive-fonts-extra \
-  texlive-lang-norwegian \
-  texlive-lang-danish \
-  texlive-lang-swedish \
-  texlive-lang-german \
-  texlive-lang-french \
-  texlive-lang-spanish \
-  texlive-lang-italian \
+  texlive-lang-all \
   pcregrep \
-  mysql-client
+  mysql-client \
+  vim \
+  php7.0
 
 RUN git clone https://github.com/espena/mkres.git && \
   cd mkres && \
