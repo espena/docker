@@ -17,7 +17,8 @@ RUN apt-get update && apt-get install -y \
   libpng-dev \
   zlib1g-dev \
   libfreetype* \
-  php7.0
+  php7.0 \
+	php-mysqli
 
 RUN git clone https://github.com/espena/mkres.git && \
   cd mkres && \
