@@ -18,4 +18,4 @@ RUN docker-php-ext-install gd
 RUN mkdir -p /usr/local/etc/php/conf.d && \
     echo "memory_limit=4G" >> /usr/local/etc/php/conf.d/docker-php-additions.ini
 
-cmd tail -f /dev/null
+CMD tail -f /dev/null
