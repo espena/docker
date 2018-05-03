@@ -29,9 +29,9 @@ RUN apt-get update && apt-get upgrade && apt-get install -y \
   git clone https://github.com/espena/mkres.git && \
   cd mkres && \
   make install && \
-  cd build && \
+  cd ~/build && \
   curl -L https://sourceforge.net/projects/ploticus/files/latest/download?source=files | tar xvz && \
-  cd build/ploticus*/src && \
+  cd ~/build/ploticus*/src && \
   cp -f ../../ploticus_makefile Makefile && \
   make && \
   mv pl /usr/local/bin/. && \
