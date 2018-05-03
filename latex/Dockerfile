@@ -38,6 +38,6 @@ RUN apt-get update && apt-get upgrade && apt-get install -y \
   mkdir /opt/ploticus && \
   mv ../prefabs /opt/ploticus/. && \
   rm -rf ~/build && \
-  apt-get purge -y --auto-remove wget git gcc make build-essential
+  apt-get purge -y --auto-remove curl git build-essential
 
 CMD tail -f /dev/null
