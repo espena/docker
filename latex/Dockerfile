@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-RUN mkdir build
+RUN mkdir ~/build
 
 COPY ploticus_makefile build/.
 
@@ -37,7 +37,7 @@ RUN apt-get update && apt-get upgrade && apt-get install -y \
   mv pl /usr/local/bin/. && \
   mkdir /opt/ploticus && \
   mv ../prefabs /opt/ploticus/. && \
-  rm -rf build && \
+  rm -rf ~/build && \
   apt-get purge -y --auto-remove wget git gcc make build-essential
 
 CMD tail -f /dev/null
