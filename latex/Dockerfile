@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 RUN mkdir ~/build
 
-COPY ploticus_makefile ~/build/.
+COPY ploticus_makefile /root/build/.
 
 ENV PLOTICUS_PREFABS=/opt/ploticus/prefabs
 ENV DEBIAN_FRONTEND=noninteractive
