@@ -9,7 +9,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
   git \
-  build-essential \
+  gcc \
+  make \
   texlive \
   texlive-fonts-extra \
   texlive-lang-all \
@@ -38,6 +39,6 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
   mkdir /opt/ploticus && \
   mv ../prefabs /opt/ploticus/. && \
   rm -rf ~/build && \
-  apt-get purge -y --auto-remove curl git build-essential
+  apt-get purge -y --auto-remove curl git gcc make
 
 CMD tail -f /dev/null
