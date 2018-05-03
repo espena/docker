@@ -4,6 +4,8 @@ RUN mkdir build
 
 COPY ploticus_makefile build/.
 
+ENV PLOTICUS_PREFABS=/opt/ploticus/prefabs
+
 RUN apt-get update && apt-get upgrade && apt-get install -y \
   git \
   build-essential \
@@ -21,8 +23,8 @@ RUN apt-get update && apt-get upgrade && apt-get install -y \
   libpng-dev \
   zlib1g-dev \
   libfreetype* \
-  php7.0 \
-	php7.0-mysqli && \
+  php7.2 \
+	php7.2-mysql && \
   git clone https://github.com/espena/mkres.git && \
   cd mkres && \
   make install && \
@@ -35,8 +37,6 @@ RUN apt-get update && apt-get upgrade && apt-get install -y \
   mkdir /opt/ploticus && \
   mv ../prefabs /opt/ploticus/. && \
   rm -rf build && \
-  apt-get purge -y --auto-remove wget git gcc make build-essential && \
-
-ENV PLOTICUS_PREFABS=/opt/ploticus/prefabs
+  apt-get purge -y --auto-remove wget git gcc make build-essential
 
 CMD tail -f /dev/null
