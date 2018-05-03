@@ -1,6 +1,10 @@
 FROM ubuntu:latest
 
-RUN apt-get update && apt-get install -y \
+RUN mkdir build
+
+COPY ploticus_makefile build/.
+
+RUN apt-get update && apt-get upgrade && apt-get install -y \
   git \
   build-essential \
   texlive \
@@ -18,26 +22,20 @@ RUN apt-get update && apt-get install -y \
   zlib1g-dev \
   libfreetype* \
   php7.0 \
-	php7.0-mysqli
-
-RUN git clone https://github.com/espena/mkres.git && \
+	php7.0-mysqli && \
+  git clone https://github.com/espena/mkres.git && \
   cd mkres && \
-  make install
-
-RUN mkdir build && \
-    cd build && \
-    curl -L https://sourceforge.net/projects/ploticus/files/latest/download?source=files | tar xvz
-
-COPY ploticus_makefile build/.
-
-RUN cd build/ploticus*/src && \
-    cp -f ../../ploticus_makefile Makefile && \
-    make && \
-    mv pl /usr/local/bin/. && \
-    mkdir /opt/ploticus && \
-    mv ../prefabs /opt/ploticus/.
-
-RUN rm -rf build
+  make install && \
+  cd build && \
+  curl -L https://sourceforge.net/projects/ploticus/files/latest/download?source=files | tar xvz && \
+  cd build/ploticus*/src && \
+  cp -f ../../ploticus_makefile Makefile && \
+  make && \
+  mv pl /usr/local/bin/. && \
+  mkdir /opt/ploticus && \
+  mv ../prefabs /opt/ploticus/. && \
+  rm -rf build && \
+  apt-get purge -y --auto-remove wget git gcc make build-essential && \
 
 ENV PLOTICUS_PREFABS=/opt/ploticus/prefabs
 
