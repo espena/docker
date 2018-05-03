@@ -5,6 +5,7 @@ RUN mkdir build
 COPY ploticus_makefile build/.
 
 ENV PLOTICUS_PREFABS=/opt/ploticus/prefabs
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get upgrade && apt-get install -y \
   git \
