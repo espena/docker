@@ -7,7 +7,7 @@ COPY ploticus_makefile /root/build/.
 ENV PLOTICUS_PREFABS=/opt/ploticus/prefabs
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && apt-get upgrade -y && apt-get install -y \
+RUN apt-get update && apt-get upgrade && apt-get install -y \
   git \
   build-essential \
   texlive \
