@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 RUN mkdir ~/build
 
-COPY ploticus_makefile build/.
+COPY ploticus_makefile ~/build/.
 
 ENV PLOTICUS_PREFABS=/opt/ploticus/prefabs
 ENV DEBIAN_FRONTEND=noninteractive
@@ -32,7 +32,7 @@ RUN apt-get update && apt-get upgrade && apt-get install -y \
   cd ~/build && \
   curl -L https://sourceforge.net/projects/ploticus/files/latest/download?source=files | tar xvz && \
   cd ~/build/ploticus*/src && \
-  cp -f ../../ploticus_makefile Makefile && \
+  cp -f ~/build/ploticus_makefile Makefile && \
   make && \
   mv pl /usr/local/bin/. && \
   mkdir /opt/ploticus && \
