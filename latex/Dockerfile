@@ -24,8 +24,8 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
   libpng-dev \
   zlib1g-dev \
   libfreetype* \
-  php7.0 \
-	php7.0-mysqli && \
+  php7.2 \
+	php7.2-mysql && \
   git clone https://github.com/espena/mkres.git && \
   cd mkres && \
   make install && \
