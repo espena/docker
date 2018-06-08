@@ -24,6 +24,6 @@ RUN cd sphinx && \
     ./configure --with-libstemmer && \
     make clean && \
     make -j4 && \
-    make install
+    make -j4 install
 
 CMD tail -f /dev/null
