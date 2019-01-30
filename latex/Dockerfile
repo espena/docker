@@ -1,11 +1,9 @@
 FROM ubuntu:latest
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y \
   git \
   build-essential \
-  texlive \
-  texlive-fonts-extra \
-  texlive-lang-all \
   pcregrep \
   ploticus \
   mysql-client \
@@ -18,7 +16,13 @@ RUN apt-get update && apt-get install -y \
   zlib1g-dev \
   libfreetype* \
   php7.0 \
-	php7.0-mysqli
+	php-mysqli \
+  python-pip
+
+RUN apt-get update && apt-get install -y \
+  texlive \
+  texlive-fonts-extra \
+  texlive-lang-all
 
 RUN git clone https://github.com/espena/mkres.git && \
   cd mkres && \
@@ -38,6 +42,8 @@ RUN cd build/ploticus*/src && \
     mv ../prefabs /opt/ploticus/.
 
 RUN rm -rf build
+
+RUN pip install wordcloud
 
 ENV PLOTICUS_PREFABS=/opt/ploticus/prefabs
 
