@@ -7,6 +7,7 @@ dav:
   volumes:
       - ./docker-volumes/etc/letsencrypt/live:/etc/letsencrypt/live
       - ./docker-volumes/var/lib/postgresql/9.5:/var/lib/postgresql/9.5
+      - ./docker-volumes/home/uploader/upload:/home/uploader/upload
   environment:
       - VHOST_NAME=caldav.espenandersen.no
       - VHOST_ADMIN=post@espenandersen.no
