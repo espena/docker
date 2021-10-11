@@ -21,6 +21,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN apt-get update && apt-get install -y \
   texlive \
+  texlive-xetex \
   texlive-fonts-extra \
   texlive-lang-all
 
